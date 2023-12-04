@@ -7,12 +7,12 @@ my_fruit_list = my_fruit_list.set_index('Fruit') # set the index so multiselect 
 streamlit.title('My Parents\' New Healthy Diner')
 
 streamlit.header('Breakfast Favorites')
-streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
-streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
-streamlit.text('🐔 Hard-Boiled Free-Range Egg')
-streamlit.text('🥑🍞 Avocado Toast')
+streamlit.text('Omega 3 & Blueberry Oatmeal')
+streamlit.text('Kale, Spinach & Rocket Smoothie')
+streamlit.text('Hard-Boiled Free-Range Egg')
+streamlit.text('Avocado Toast')
 
-streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
+streamlit.header('Build Your Own Fruit Smoothie')
 # allow user to pick fruits from the list using a streamlit multi-select
 streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
 # show complete fruit table
