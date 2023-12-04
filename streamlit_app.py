@@ -13,9 +13,10 @@ streamlit.text('Hard-Boiled Free-Range Egg')
 streamlit.text('Avocado Toast')
 
 streamlit.header('Build Your Own Fruit Smoothie')
+
 # allow user to pick fruits from the list using a streamlit multi-select
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Strawberries','Avocado'])
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 
-# show complete fruit table
+# show nutrition information on selected fruits
 streamlit.dataframe(fruits_to_show)
