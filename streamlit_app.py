@@ -23,7 +23,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 streamlit.header('Fruit Advice from Fruityvice!')
-fruit_choice = streamlit.select("Pick a fruit:", list(my_fruit_list.index))
+fruit_choice = streamlit.selectbox("Pick a fruit:", list(my_fruit_list.index))
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # convert JSON to tabular data with pandas
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
