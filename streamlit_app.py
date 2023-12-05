@@ -31,15 +31,16 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 streamlit.header('Fruit Advice from Fruityvice!')
+def get_fruityvice_data(this_fruit_choice):
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+        fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+        return fruityvice_normalized
 try:
     fruit_choice = streamlit.selectbox("Pick a fruit:", list(my_fruit_list.index))
     if not fruit_choice:
         streamlit.error("Please select a fruit to get information!")
     else:
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-        # convert JSON to tabular data with pandas
-        fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-        streamlit.dataframe(fruityvice_normalized)
+        streamlit.dataframe(get_fruityvice_data(fruit_choice))
 except URLError as e:
     streamlit.error()
 
