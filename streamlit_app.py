@@ -38,3 +38,4 @@ streamlit.dataframe(fruityvice_normalized)
 
 streamlit.header('Local fruits')
 streamlit.dataframe(sf_fruit_list)
+streamlit.text_input('Add a new fruit:')
